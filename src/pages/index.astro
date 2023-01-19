@@ -1,0 +1,28 @@
+---
+const duneLinks = [
+  "https://dune.com/embeds/1904905/3136294/9d4005ec-2f4a-4f16-9ae2-6b4984e670aa",
+  "https://dune.com/embeds/1904924/3136316/1d66b837-d40b-4366-92b7-c75ac8bf3408",
+  "https://dune.com/embeds/1904925/3136318/9ec21fab-6e10-44f4-b1c5-f7b2130052b2",
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Rage Dashboard</title>
+  </head>
+  <body class="flex flex-col items-center py-20">
+    <section class="flex flex-col gap-8">
+      <h1 class="font-semibold text-2xl">Trader Open Interest ETH/BTC</h1>
+
+      {
+        duneLinks.map((link) => (
+          <iframe class="w-[800px] h-[400px]" src={link} />
+        ))
+      }
+    </section>
+  </body>
+</html>
