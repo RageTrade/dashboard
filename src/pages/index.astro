@@ -1,6 +1,7 @@
 ---
 import OpenInterest from "../components/OpenInterest.astro";
-import { PositionStats } from "../components/PositionStats";
+import { Delta } from "../components/Delta";
+import { AaveBorrowRate } from "../components/AaveBorrowRate";
 ---
 
 <html lang="en">
@@ -12,8 +13,12 @@ import { PositionStats } from "../components/PositionStats";
     <title>Rage Dashboard</title>
   </head>
   <body class="flex flex-col items-center py-20">
-    <div class="space-y-20">
-      <PositionStats client:load />
+    <div class="flex flex-col gap-20">
+      <Delta client:load />
+
+      <AaveBorrowRate client:load/>
+
+      
       <OpenInterest />
     </div>
   </body>
