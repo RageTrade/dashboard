@@ -71,10 +71,10 @@ export function Plot<T extends ChartData>({
         />
 
         <Tooltip
-          wrapperClassName="rounded-2xl shadow-black/5 shadow-lg text-sm font-mono"
+          wrapperClassName="rounded-2xl shadow-stone/80 shadow-xl text-sm font-mono"
           contentStyle={{
             fontSize: "0.85rem",
-            background: "#f5f5f4",
+            background: "#e7e5e4",
             border: "1px solid #dcdae3",
             padding: "1rem 1.5rem",
           }}

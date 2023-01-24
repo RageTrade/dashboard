@@ -45,20 +45,6 @@ async function fetchData() {
 
   return [
     {
-      label: "BTC Optimal",
-      value: printToken(format(btcOptimal, 8), "BTC"),
-      valueAsDollar: printDollar(
-        format(btcOptimal.mul(btcPrice.answer), 8 + 8)
-      ),
-    },
-    {
-      label: "ETH Optimal",
-      value: printToken(format(ethOptimal, 18), "ETH"),
-      valueAsDollar: printDollar(
-        format(ethOptimal.mul(ethPrice.answer), 18 + 8)
-      ),
-    },
-    {
       label: "BTC Current",
       value: printToken(format(btcCurrent, 8), "BTC"),
       valueAsDollar: printDollar(
@@ -66,10 +52,24 @@ async function fetchData() {
       ),
     },
     {
+      label: "BTC Optimal",
+      value: printToken(format(btcOptimal, 8), "BTC"),
+      valueAsDollar: printDollar(
+        format(btcOptimal.mul(btcPrice.answer), 8 + 8)
+      ),
+    },
+    {
       label: "ETH Current",
       value: printToken(format(ethCurrent, 18), "ETH"),
       valueAsDollar: printDollar(
         format(ethCurrent.mul(ethPrice.answer), 18 + 8)
+      ),
+    },
+    {
+      label: "ETH Optimal",
+      value: printToken(format(ethOptimal, 18), "ETH"),
+      valueAsDollar: printDollar(
+        format(ethOptimal.mul(ethPrice.answer), 18 + 8)
       ),
     },
   ];
@@ -88,24 +88,25 @@ export function Delta() {
     fetchData().then((d) => setData(d));
   }, []);
 
-  if (!data) return <div>Loading...</div>;
-
   return (
     <section>
       <h1 className="font-semibold text-2xl mb-4">Total Delta ETH/BTC</h1>
-
-      <dl>
-        {data.map(({ label, value, valueAsDollar }) => {
-          return (
-            <div key={label} className="flex gap-2">
-              <dt>{label}: </dt>
-              <dl className="tabular-nums">
-                {value} ({valueAsDollar})
-              </dl>
-            </div>
-          );
-        })}
-      </dl>
+      {!data ? (
+        <div>Loading...</div>
+      ) : (
+        <dl>
+          {data.map(({ label, value, valueAsDollar }) => {
+            return (
+              <div key={label} className="flex gap-2">
+                <dt>{label}: </dt>
+                <dl className="tabular-nums">
+                  {value} ({valueAsDollar})
+                </dl>
+              </div>
+            );
+          })}
+        </dl>
+      )}
     </section>
   );
 }
