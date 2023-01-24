@@ -14,7 +14,7 @@ import {
 import { printDollar, printToken } from "../../utils/print";
 
 const tokenFormatter = (symbol: string) => (value: number) =>
-  printToken(value, symbol, { minimumFractionDigits: 0 });
+  printToken(value, symbol);
 
 const dollarFormatter = (value: number) =>
   printDollar(value, { minimumFractionDigits: 0, notation: "compact" });
