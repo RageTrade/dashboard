@@ -2,6 +2,7 @@
 import OpenInterest from "../components/OpenInterest.astro";
 import { Delta } from "../components/Delta";
 import { AaveBorrowRate } from "../components/AaveBorrowRate";
+import { Rebalances } from "../components/Rebalances";
 ---
 
 <html lang="en">
@@ -12,13 +13,16 @@ import { AaveBorrowRate } from "../components/AaveBorrowRate";
     <meta name="generator" content={Astro.generator} />
     <title>Rage Dashboard</title>
   </head>
-  <body class="flex flex-col items-center py-20">
-    <div class="flex flex-col gap-20">
-      <Delta client:load />
+  <body class="flex flex-col items-center py-20 bg-stone-100 text-stone-800">
+    <div class="flex flex-col gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <Delta client:load />
 
-      <AaveBorrowRate client:load/>
+        <AaveBorrowRate client:load />
+      </div>
 
-      
+      <Rebalances client:load />
+
       <OpenInterest />
     </div>
   </body>

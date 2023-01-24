@@ -55,12 +55,14 @@ export const PositionStats = () => {
 
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-4">GMX Position Stats</h1>
-      <dl>
+      <h1 className="font-semibold text-2xl mb-4 text-stone-800">
+        GMX Position Stats
+      </h1>
+      <dl className="text-stone-700">
         {stats
           ? stats.map(({ label, value }) => (
               <div className="flex text-lg gap-2">
-                <dt className="text-gray-900">{label}: </dt>
+                <dt>{label}: </dt>
                 <dl>{value}</dl>
               </div>
             ))

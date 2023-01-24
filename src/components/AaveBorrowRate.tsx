@@ -47,9 +47,11 @@ export function AaveBorrowRate() {
 
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-4">AAVE ETH/BTC Borrow Rate</h1>
+      <h1 className="font-semibold text-2xl mb-4 text-stone-800">
+        AAVE ETH/BTC Borrow Rate
+      </h1>
 
-      <dl>
+      <dl className="text-stone-700">
         <div className="flex gap-2">
           <dt>BTC Borrow Rate: </dt>
           <dd>{data?.btcBorrowRate}</dd>
